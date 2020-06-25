@@ -84,12 +84,14 @@ def do_login(c_sock):
         data = c_sock.recv(128).decode()
         if data=="Yes":
             print("登录成功！")
+            return input_username
         else:
             if data=="WrongName":
                 print("用户名错误，登录失败")
             elif data=="WrongPsw":
                 print("密码错误，登录失败")
-        return input_username
+            continue
+
 
 def main():
     c_sock=socket()
